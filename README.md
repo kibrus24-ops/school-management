@@ -21,3 +21,4 @@ On first start, tables are created automatically and demo data is seeded.
 - Admin: `admin / admin123`
 - Teacher: `teacher.sarah / teacher123`
 - Student: `student.aiden / student123` with Student ID `1`
+# school-management

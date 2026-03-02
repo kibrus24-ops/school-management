@@ -1,5 +1,3 @@
-[00:00:00.809] Server  LOG     ✓ Ready in 523ms
-[00:00:17.529] Server  LOG     [dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
-[00:00:21.266] Server  WARN    Error: Route "/api/[...path]" used `params.path`. `params` is a Promise and must be unwrapped with `await` or `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[00:00:21.436] Server  WARN    Error: Route "/api/[...path]" used `params.path`. `params` is a Promise and must be unwrapped with `await` or `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[00:00:21.587] Server  WARN    Error: Route "/api/[...path]" used `params.path`. `params` is a Promise and must be unwrapped with `await` or `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+[00:00:00.949] Server  LOG     ✓ Ready in 603ms
+[00:01:19.925] Server  LOG     ○ Compiling /_not-found/page ...
+[00:01:33.593] Server  LOG     [dotenv@17.3.1] injecting env (0) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2

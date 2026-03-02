@@ -119,11 +119,11 @@ const upsertAttendance = async (payload) => {
   return json(toAttendance(result.rows[0]), 201);
 };
 
-const handleRequest = async (req, { params }) => {
+const handleRequest = async (req, resolvedParams) => {
   await ensureDbInitialized();
 
   const method = req.method;
-  const parts = params?.path || [];
+  const parts = resolvedParams?.path || [];
 
   if (method === "POST" && parts.length === 2 && parts[0] === "auth" && parts[1] === "login") {
     const { username, password, role, studentId } = await readJson(req);
@@ -560,7 +560,8 @@ const handleRequest = async (req, { params }) => {
 
 export async function GET(req, ctx) {
   try {
-    return await handleRequest(req, ctx);
+    const resolvedParams = await ctx.params;
+    return await handleRequest(req, resolvedParams);
   } catch (error) {
     return handleError(error);
   }
@@ -568,7 +569,8 @@ export async function GET(req, ctx) {
 
 export async function POST(req, ctx) {
   try {
-    return await handleRequest(req, ctx);
+    const resolvedParams = await ctx.params;
+    return await handleRequest(req, resolvedParams);
   } catch (error) {
     return handleError(error);
   }
@@ -576,7 +578,8 @@ export async function POST(req, ctx) {
 
 export async function PUT(req, ctx) {
   try {
-    return await handleRequest(req, ctx);
+    const resolvedParams = await ctx.params;
+    return await handleRequest(req, resolvedParams);
   } catch (error) {
     return handleError(error);
   }
@@ -584,7 +587,8 @@ export async function PUT(req, ctx) {
 
 export async function DELETE(req, ctx) {
   try {
-    return await handleRequest(req, ctx);
+    const resolvedParams = await ctx.params;
+    return await handleRequest(req, resolvedParams);
   } catch (error) {
     return handleError(error);
   }

@@ -1,24 +1,20 @@
-# School Management
+# School Management (Next.js)
 
-This project now runs with a real backend (Express + PostgreSQL) and is ready for Supabase Postgres.
+This project is now a Next.js app using the App Router.
 
-## Setup
+## Scripts
 
-1. Copy env file:
-   - `cp .env.example .env`
-2. Fill `DATABASE_URL` with your Supabase Postgres connection string.
-3. Install deps:
-   - `npm install`
-4. Start server:
-   - `npm run dev`
-5. Open:
-   - `http://localhost:3000`
+- `npm run dev` - start local development server
+- `npm run build` - create production build
+- `npm run start` - run production build
 
-On first start, tables are created automatically and demo data is seeded.
+## Stack
 
-## Demo Accounts
+- Next.js
+- React
+- PostgreSQL (`pg`)
 
-- Admin: `admin / admin123`
-- Teacher: `teacher.sarah / teacher123`
-- Student: `student.aiden / student123` with Student ID `1`
-# school-management
+## API
+
+All backend endpoints are implemented in `app/api/[...path]/route.js`.
+Database initialization and queries are handled by `server/db.js`.

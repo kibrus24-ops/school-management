@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 14, "column": 0}, "map": {"version":3,"sources":["file:///home/user43/school-management/app/page.js"],"sourcesContent":["import { redirect } from \"next/navigation\";\n\nexport default function Home() {\n  redirect(\"/index.html\");\n}\n"],"names":[],"mappings":";;;;AAAA;AAAA;;AAEe,SAAS;IACtB,IAAA,yNAAQ,EAAC;AACX"}}]
+}

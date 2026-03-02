@@ -1,0 +1,13 @@
+var R=require("../../chunks/ssr/[turbopack]_runtime.js")("server/app/_not-found/page.js")
+R.c("server/chunks/ssr/[root-of-the-server]__5b879007._.js")
+R.c("server/chunks/ssr/a0253_next_dist_c2ce953e._.js")
+R.c("server/chunks/ssr/a0253_next_dist_esm_build_templates_app-page_42c1409e.js")
+R.c("server/chunks/ssr/[root-of-the-server]__7955abbb._.js")
+R.c("server/chunks/ssr/[root-of-the-server]__e2b005e0._.js")
+R.c("server/chunks/ssr/a0253_next_dist_6a678668._.js")
+R.c("server/chunks/ssr/school-management_app_layout_42492afc.js")
+R.c("server/chunks/ssr/a0253_next_dist_client_components_9ed836ae._.js")
+R.c("server/chunks/ssr/a0253_next_dist_client_components_builtin_forbidden_5c5bde29.js")
+R.c("server/chunks/ssr/school-management__next-internal_server_app__not-found_page_actions_a168bfe3.js")
+R.m(87915)
+module.exports=R.m(87915).exports

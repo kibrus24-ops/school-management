@@ -1,0 +1,26 @@
+globalThis.__BUILD_MANIFEST = {
+  "pages": {
+    "/_app": []
+  },
+  "devFiles": [],
+  "polyfillFiles": [
+    "static/chunks/a0253_next_dist_build_polyfills_polyfill-nomodule.js"
+  ],
+  "lowPriorityFiles": [],
+  "rootMainFiles": [
+    "static/chunks/[turbopack]_browser_dev_hmr-client_hmr-client_ts_d63a3283._.js",
+    "static/chunks/a0253_next_dist_compiled_react-dom_c62b0ae0._.js",
+    "static/chunks/a0253_next_dist_compiled_react-server-dom-turbopack_523e0873._.js",
+    "static/chunks/a0253_next_dist_compiled_next-devtools_index_8fb090b4.js",
+    "static/chunks/a0253_next_dist_compiled_f47b1b16._.js",
+    "static/chunks/a0253_next_dist_client_d84c4114._.js",
+    "static/chunks/a0253_next_dist_a352d0d3._.js",
+    "static/chunks/a0253_@swc_helpers_cjs_10717bb0._.js",
+    "static/chunks/school-management_a0ff3932._.js",
+    "static/chunks/turbopack-school-management_c622bc9e._.js"
+  ]
+};
+globalThis.__BUILD_MANIFEST.lowPriorityFiles = [
+"/static/" + process.env.__NEXT_BUILD_ID + "/_buildManifest.js",
+"/static/" + process.env.__NEXT_BUILD_ID + "/_ssgManifest.js"
+];

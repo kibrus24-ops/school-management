@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///home/user43/school-management/app/layout.js"],"sourcesContent":["export const metadata = {\n  title: \"School Management\"\n};\n\nexport default function RootLayout({ children }) {\n  return (\n    <html lang=\"en\">\n      <body>{children}</body>\n    </html>\n  );\n}\n"],"names":[],"mappings":";;;;;;;;AAAO,MAAM,WAAW;IACtB,OAAO;AACT;AAEe,SAAS,WAAW,EAAE,QAAQ,EAAE;IAC7C,qBACE,sQAAC;QAAK,MAAK;kBACT,cAAA,sQAAC;sBAAM;;;;;;;;;;;AAGb"}},
+    {"offset": {"line": 35, "column": 0}, "map": {"version":3,"sources":["file:///home/user43/school-management/node_modules/next/src/server/route-modules/app-page/vendored/rsc/react-jsx-dev-runtime.ts"],"sourcesContent":["module.exports = (\n  require('../../module.compiled') as typeof import('../../module.compiled')\n).vendored['react-rsc']!.ReactJsxDevRuntime\n"],"names":["module","exports","require","vendored","ReactJsxDevRuntime"],"mappings":"AAAAA,OAAOC,OAAO,GACZC,QAAQ,8IACRC,QAAQ,CAAC,YAAY,CAAEC,kBAAkB","ignoreList":[0]}}]
+}

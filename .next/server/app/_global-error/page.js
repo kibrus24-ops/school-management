@@ -1,0 +1,10 @@
+var R=require("../../chunks/ssr/[turbopack]_runtime.js")("server/app/_global-error/page.js")
+R.c("server/chunks/ssr/[root-of-the-server]__34765c4e._.js")
+R.c("server/chunks/ssr/a0253_next_dist_c2ce953e._.js")
+R.c("server/chunks/ssr/a0253_next_dist_96144e71._.js")
+R.c("server/chunks/ssr/[root-of-the-server]__7955abbb._.js")
+R.c("server/chunks/ssr/[root-of-the-server]__e2b005e0._.js")
+R.c("server/chunks/ssr/a0253_next_dist_6a678668._.js")
+R.c("server/chunks/ssr/school-management__next-internal_server_app__global-error_page_actions_d543e51d.js")
+R.m(1031)
+module.exports=R.m(1031).exports

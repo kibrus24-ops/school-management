@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "dev": "node server.js",
     "start": "node server.js",
-    "test": "echo \"No tests configured\""
+    "dev": "node server.js",
+    "build": "echo 'No build step required'"
   },
   "keywords": [],
   "author": "",

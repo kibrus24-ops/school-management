@@ -70,10 +70,40 @@ class SchoolManagementApp {
     const logoutBtn = qs("[data-logout]");
     const menuToggle = qs("#menuToggle");
     const sidebar = qs("#sidebar");
+    const shell = qs(".shell");
+    const mobileQuery = window.matchMedia("(max-width: 960px)");
 
     if (logoutBtn) logoutBtn.addEventListener("click", () => AuthService.logout());
     if (menuToggle && sidebar) {
-      menuToggle.addEventListener("click", () => sidebar.classList.toggle("open"));
+      const closeSidebar = () => {
+        sidebar.classList.remove("open");
+        shell?.classList.remove("shell-sidebar-open");
+        document.body.classList.remove("no-scroll");
+      };
+
+      menuToggle.addEventListener("click", () => {
+        const isOpen = sidebar.classList.toggle("open");
+        shell?.classList.toggle("shell-sidebar-open", isOpen);
+        document.body.classList.toggle("no-scroll", isOpen && mobileQuery.matches);
+      });
+
+      document.addEventListener("click", (event) => {
+        if (!mobileQuery.matches || !sidebar.classList.contains("open")) return;
+        if (sidebar.contains(event.target) || menuToggle.contains(event.target)) return;
+        closeSidebar();
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && sidebar.classList.contains("open")) closeSidebar();
+      });
+
+      sidebar.querySelectorAll(".nav-link").forEach((link) => {
+        link.addEventListener("click", closeSidebar);
+      });
+
+      mobileQuery.addEventListener("change", () => {
+        if (!mobileQuery.matches) closeSidebar();
+      });
     }
   }
 

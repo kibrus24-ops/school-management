@@ -9,6 +9,28 @@ const PORT = Number(process.env.PORT || 3000);
 app.use(cors());
 app.use(express.json());
 
+let dbInitPromise;
+
+const ensureDbInitialized = async () => {
+  if (!dbInitPromise) {
+    dbInitPromise = initDb().catch((error) => {
+      dbInitPromise = undefined;
+      throw error;
+    });
+  }
+
+  return dbInitPromise;
+};
+
+app.use("/api", async (_req, _res, next) => {
+  try {
+    await ensureDbInitialized();
+    return next();
+  } catch (error) {
+    return next(error);
+  }
+});
+
 const toUser = (row) => ({
   id: row.id,
   username: row.username,
@@ -591,15 +613,19 @@ app.use((err, _req, res, _next) => {
   return res.status(500).json({ message });
 });
 
-initDb()
-  .then(() => {
-    app.listen(PORT, () => {
+if (!process.env.VERCEL) {
+  ensureDbInitialized()
+    .then(() => {
+      app.listen(PORT, () => {
+        // eslint-disable-next-line no-console
+        console.log(`Server running on http://localhost:${PORT}`);
+      });
+    })
+    .catch((error) => {
       // eslint-disable-next-line no-console
-      console.log(`Server running on http://localhost:${PORT}`);
+      console.error("Failed to initialize database:", error);
+      process.exit(1);
     });
-  })
-  .catch((error) => {
-    // eslint-disable-next-line no-console
-    console.error("Failed to initialize database:", error);
-    process.exit(1);
-  });
+}
+
+module.exports = app;

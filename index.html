@@ -1,0 +1,791 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WeStud — Log In</title>
+    <link rel="stylesheet" href="./css/fonts.css" />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --cream: #fdf6ec;
+        --amber: #f5a623;
+        --coral: #f26c4f;
+        --teal: #2ec4b6;
+        --navy: #1a1f3c;
+        --violet: #6b4eff;
+        --lime: #c8f135;
+        --text: #1a1f3c;
+      }
+
+      body {
+        font-family: "DM Sans", sans-serif;
+        background: var(--cream);
+        min-height: 100vh;
+        display: flex;
+        overflow: hidden;
+      }
+
+      /* ── LEFT PANEL ── */
+      .left {
+        width: 52%;
+        background: var(--navy);
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 48px 52px;
+      }
+
+      /* Decorative blobs */
+      .blob {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(0px);
+        opacity: 0.9;
+      }
+      .blob-1 {
+        width: 320px;
+        height: 320px;
+        background: var(--violet);
+        top: -80px;
+        left: -80px;
+        border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%;
+        animation: morph 8s ease-in-out infinite;
+      }
+      .blob-2 {
+        width: 200px;
+        height: 200px;
+        background: var(--teal);
+        bottom: 120px;
+        left: 60px;
+        border-radius: 40% 60% 45% 55% / 60% 40% 60% 40%;
+        animation: morph 10s ease-in-out infinite reverse;
+      }
+      .blob-3 {
+        width: 280px;
+        height: 280px;
+        background: var(--coral);
+        bottom: -60px;
+        right: -60px;
+        border-radius: 50% 50% 60% 40% / 45% 55% 45% 55%;
+        animation: morph 12s ease-in-out infinite;
+      }
+      .blob-4 {
+        width: 120px;
+        height: 120px;
+        background: var(--amber);
+        top: 200px;
+        right: 80px;
+        border-radius: 50%;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      @keyframes morph {
+        0%,
+        100% {
+          border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%;
+        }
+        33% {
+          border-radius: 40% 60% 30% 70% / 60% 40% 70% 30%;
+        }
+        66% {
+          border-radius: 70% 30% 50% 50% / 30% 70% 50% 50%;
+        }
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      /* Grid dots */
+      .dots-grid {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.12) 1.5px,
+          transparent 1.5px
+        );
+        background-size: 32px 32px;
+        pointer-events: none;
+      }
+
+      /* Logo */
+      .logo {
+        position: relative;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .logo-mark {
+        width: 38px;
+        height: 38px;
+        background: var(--lime);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Fraunces", serif;
+        font-weight: 900;
+        font-size: 18px;
+        color: var(--navy);
+      }
+      .logo-text {
+        font-family: "Fraunces", serif;
+        font-weight: 700;
+        font-size: 22px;
+        color: #fff;
+        letter-spacing: -0.5px;
+      }
+
+      /* Hero text */
+      .hero {
+        position: relative;
+        z-index: 10;
+        margin-bottom: 60px;
+      }
+      .hero-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 100px;
+        padding: 6px 14px;
+        color: var(--lime);
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 24px;
+      }
+      .hero-eyebrow span {
+        width: 6px;
+        height: 6px;
+        background: var(--lime);
+        border-radius: 50%;
+        display: inline-block;
+      }
+      .hero h1 {
+        font-family: "Fraunces", serif;
+        font-size: 56px;
+        font-weight: 900;
+        line-height: 1;
+        color: #fff;
+        letter-spacing: -2px;
+        margin-bottom: 20px;
+      }
+      .hero h1 em {
+        font-style: italic;
+        color: var(--lime);
+      }
+      .hero p {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 1.6;
+        max-width: 340px;
+      }
+
+      /* Stats row */
+      .stats {
+        position: relative;
+        z-index: 10;
+        display: flex;
+        gap: 32px;
+      }
+      .stat-item {
+      }
+      .stat-num {
+        font-family: "Fraunces", serif;
+        font-size: 28px;
+        font-weight: 700;
+        color: #fff;
+      }
+      .stat-label {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.5);
+        margin-top: 2px;
+      }
+
+      /* Floating card */
+      .float-card {
+        position: absolute;
+        z-index: 20;
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 18px;
+        padding: 16px 20px;
+        top: 48%;
+        right: -28px;
+        width: 180px;
+        animation: float 7s ease-in-out infinite;
+      }
+      .float-card .fc-label {
+        font-size: 10px;
+        color: rgba(255, 255, 255, 0.5);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 8px;
+      }
+      .fc-avatars {
+        display: flex;
+        margin-bottom: 8px;
+      }
+      .fc-avatar {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        border: 2px solid var(--navy);
+        margin-left: -8px;
+        background: var(--amber);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--navy);
+      }
+      .fc-avatar:first-child {
+        margin-left: 0;
+        background: var(--teal);
+      }
+      .fc-avatar:nth-child(2) {
+        background: var(--coral);
+      }
+      .fc-avatar:nth-child(3) {
+        background: var(--violet);
+        color: #fff;
+      }
+      .fc-count {
+        font-size: 13px;
+        font-weight: 600;
+        color: #fff;
+      }
+      .fc-sub {
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.5);
+      }
+
+      /* ── RIGHT PANEL ── */
+      .right {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 60px 64px;
+        position: relative;
+      }
+
+      /* Decorative accent top-right */
+      .right::before {
+        content: "";
+        position: absolute;
+        top: -60px;
+        right: -60px;
+        width: 240px;
+        height: 240px;
+        background: radial-gradient(circle, var(--lime) 0%, transparent 70%);
+        opacity: 0.18;
+        pointer-events: none;
+      }
+
+      .form-container {
+        width: 100%;
+        max-width: 380px;
+        animation: slideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+      }
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .form-header {
+        margin-bottom: 40px;
+      }
+      .form-header h2 {
+        font-family: "Fraunces", serif;
+        font-size: 38px;
+        font-weight: 900;
+        color: var(--navy);
+        letter-spacing: -1.5px;
+        line-height: 1.05;
+        margin-bottom: 10px;
+      }
+      .form-header h2 span {
+        color: var(--violet);
+      }
+      .form-header p {
+        font-size: 14px;
+        color: #888;
+        font-weight: 400;
+      }
+
+      /* Form fields */
+      .field {
+        margin-bottom: 18px;
+      }
+      .field label {
+        display: block;
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--navy);
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+      }
+      .field-wrap {
+        position: relative;
+      }
+      .field-icon {
+        position: absolute;
+        left: 14px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #bbb;
+        display: flex;
+      }
+      .field input,
+      .field select {
+        width: 100%;
+        padding: 14px 14px 14px 42px;
+        border: 1.5px solid #e8e8e8;
+        border-radius: 14px;
+        font-family: "DM Sans", sans-serif;
+        font-size: 15px;
+        color: var(--navy);
+        background: #fff;
+        outline: none;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
+      }
+      .field input::placeholder {
+        color: #c4c4c4;
+      }
+      .field input:focus,
+      .field select:focus {
+        border-color: var(--violet);
+        box-shadow: 0 0 0 3px rgba(107, 78, 255, 0.12);
+      }
+      .eye-toggle {
+        position: absolute;
+        right: 14px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #bbb;
+        display: flex;
+        padding: 0;
+      }
+
+      /* CTA */
+      .btn-login {
+        width: 100%;
+        padding: 16px;
+        background: var(--navy);
+        color: #fff;
+        border: none;
+        border-radius: 14px;
+        font-family: "DM Sans", sans-serif;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 28px;
+        letter-spacing: 0.01em;
+      }
+      .btn-login::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          var(--violet) 0%,
+          var(--coral) 100%
+        );
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+      .btn-login:hover::before {
+        opacity: 1;
+      }
+      .btn-login:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 28px rgba(107, 78, 255, 0.35);
+      }
+      .btn-login span,
+      .btn-login svg {
+        position: relative;
+        z-index: 1;
+      }
+
+      .input-select {
+        appearance: none;
+        -webkit-appearance: none;
+        cursor: pointer;
+      }
+      .select-arrow {
+        position: absolute;
+        right: 14px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #bbb;
+        display: flex;
+        pointer-events: none;
+      }
+      .is-hidden {
+        display: none !important;
+      }
+      .text-error {
+        font-size: 13px;
+        color: var(--coral);
+        min-height: 18px;
+        margin-bottom: 6px;
+        font-weight: 500;
+      }
+      .note {
+        text-align: center;
+        font-size: 11.5px;
+        color: #aaa;
+        line-height: 1.6;
+        margin-top: 20px;
+      }
+      .note strong {
+        color: #888;
+      }
+
+      /* Subject tags floating left panel */
+      .tag-chips {
+        position: absolute;
+        top: 39%;
+        left: 260px;
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        animation: float 9s ease-in-out infinite reverse;
+      }
+      .tag-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 100px;
+        padding: 8px 14px;
+        font-size: 12px;
+        font-weight: 500;
+        color: #fff;
+      }
+      .tag-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        flex-shrink: 0;
+      }
+
+      @media (max-width: 800px) {
+        body {
+          flex-direction: column;
+        }
+        .left {
+          width: 100%;
+          min-height: 280px;
+          padding: 36px;
+        }
+        .tag-chips,
+        .float-card {
+          display: none;
+        }
+        .hero h1 {
+          font-size: 38px;
+        }
+        .right {
+          padding: 40px 28px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- LEFT -->
+    <div class="left">
+      <div class="dots-grid"></div>
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+      <div class="blob blob-4"></div>
+
+      <div class="logo">
+        <div class="logo-mark">YTS</div>
+        <span class="logo-text">YTS SCHOOL</span>
+      </div>
+
+      <div class="tag-chips">
+        <div class="tag-chip">
+          <span class="tag-dot" style="background: var(--amber)"></span
+          >Mathematics
+        </div>
+        <div class="tag-chip">
+          <span class="tag-dot" style="background: var(--teal)"></span>Physics
+        </div>
+        <div class="tag-chip">
+          <span class="tag-dot" style="background: var(--coral)"></span
+          >Literature
+        </div>
+      </div>
+
+      <div class="hero">
+        <div class="hero-eyebrow"><span></span>Educational Platform</div>
+        <h1>Learn<br /><em>without</em><br />limits.</h1>
+        <p>
+          Join thousands of students mastering new skills every day — at their
+          own pace, in their own way.
+        </p>
+      </div>
+
+      <div class="stats">
+        <div class="stat-item">
+          <div class="stat-num">48K+</div>
+          <div class="stat-label">Students</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">1,200</div>
+          <div class="stat-label">Courses</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">98%</div>
+          <div class="stat-label">Satisfaction</div>
+        </div>
+      </div>
+
+      <!-- Floating student card -->
+      <div class="float-card">
+        <div class="fc-label">Active now</div>
+        <div class="fc-avatars">
+          <div class="fc-avatar">A</div>
+          <div class="fc-avatar">B</div>
+          <div class="fc-avatar">C</div>
+          <div class="fc-avatar">+</div>
+        </div>
+        <div class="fc-count">240 studying</div>
+        <div class="fc-sub">Calculus · Chapter 4</div>
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="right">
+      <div class="form-container">
+        <div class="form-header">
+          <h2>Welcome<br /><span>back.</span></h2>
+          <p>Sign in to continue your learning journey.</p>
+        </div>
+
+        <form id="loginForm" novalidate>
+          <div class="field">
+            <label for="role">Role</label>
+            <div class="field-wrap">
+              <span class="field-icon">
+                <svg
+                  width="16"
+                  height="16"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+              </span>
+              <select id="role" class="input input-select" required>
+                <option value="">Select role</option>
+                <option value="admin">Admin</option>
+                <option value="teacher">Teacher</option>
+                <option value="student">Student</option>
+              </select>
+              <span class="select-arrow">
+                <svg
+                  width="14"
+                  height="14"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="m6 9 6 6 6-6" />
+                </svg>
+              </span>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="username">Username</label>
+            <div class="field-wrap">
+              <span class="field-icon">
+                <svg
+                  width="16"
+                  height="16"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                  <circle cx="12" cy="7" r="4" />
+                </svg>
+              </span>
+              <input
+                id="username"
+                class="input"
+                type="text"
+                placeholder="admin"
+                autocomplete="username"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="password">Password</label>
+            <div class="field-wrap">
+              <span class="field-icon">
+                <svg
+                  width="16"
+                  height="16"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  viewBox="0 0 24 24"
+                >
+                  <rect x="3" y="11" width="18" height="11" rx="2" />
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                </svg>
+              </span>
+              <input
+                id="password"
+                class="input"
+                type="password"
+                placeholder="admin123"
+                autocomplete="current-password"
+                required
+              />
+              <button
+                class="eye-toggle"
+                onclick="togglePw()"
+                type="button"
+                aria-label="Toggle password"
+              >
+                <svg
+                  id="eyeIcon"
+                  width="16"
+                  height="16"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div id="studentIdGroup" class="field is-hidden">
+            <label for="studentId">Student ID</label>
+            <div class="field-wrap">
+              <span class="field-icon">
+                <svg
+                  width="16"
+                  height="16"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  viewBox="0 0 24 24"
+                >
+                  <rect x="2" y="4" width="20" height="16" rx="2" />
+                  <path d="M8 10h8M8 14h5" />
+                </svg>
+              </span>
+              <input
+                id="studentId"
+                class="input"
+                type="text"
+                placeholder="e.g. 1"
+              />
+            </div>
+          </div>
+
+          <p id="loginError" class="text-error" aria-live="polite"></p>
+
+          <button id="loginBtn" class="btn-login" type="submit">
+            <span>Login</span>
+            <svg
+              width="16"
+              height="16"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </button>
+        </form>
+
+        <p class="note">
+          Demo: <strong>admin / admin123</strong> ·
+          <strong>teacher.sarah / teacher123</strong> ·
+          <strong>student.aiden / student123 / ID: 1</strong>
+        </p>
+      </div>
+    </div>
+
+    <script>
+      // Keep password visibility toggle for the eye button in the form.
+      function togglePw() {
+        const inp = document.getElementById("password");
+        inp.type = inp.type === "password" ? "text" : "password";
+      }
+    </script>
+    <script type="module" src="./js/login.js"></script>
+  </body>
+</html>

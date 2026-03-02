@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Attendance | School Management</title>
+    <link
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/fonts.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body data-page="attendance">
+    <div class="shell">
+      <aside class="sidebar" id="sidebar">
+        <a href="./dashboard.html" class="brand">YTS SCHOOL</a>
+        <nav class="nav" aria-label="Sidebar navigation">
+          <a class="nav-link" data-nav="dashboard" href="./dashboard.html"
+            >Dashboard</a
+          >
+          <a class="nav-link" data-nav="students" href="./students.html"
+            >Students</a
+          >
+          <a class="nav-link" data-nav="teachers" href="./teachers.html"
+            >Teachers</a
+          >
+          <a class="nav-link" data-nav="attendance" href="./attendance.html"
+            >Attendance</a
+          >
+          <a class="nav-link" data-nav="results" href="./results.html"
+            >Results</a
+          >
+        </nav>
+        <div class="sidebar-footer">
+          <p class="note">
+            Signed in as <strong data-current-user>Admin</strong>
+          </p>
+          <button data-logout class="btn btn-secondary" type="button">
+            Logout
+          </button>
+        </div>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <button id="menuToggle" class="btn menu-toggle" type="button">
+            Menu
+          </button>
+          <div class="page-title">
+            <h2>Attendance</h2>
+            <p>Track daily attendance and maintain records.</p>
+          </div>
+        </header>
+
+        <section class="grid-two">
+          <article class="card">
+            <div class="section-head">
+              <h3>Record Attendance</h3>
+            </div>
+            <form id="attendanceForm" novalidate>
+              <div class="form-grid">
+                <div class="form-group full">
+                  <label for="attendanceStudent">Student</label>
+                  <select
+                    id="attendanceStudent"
+                    class="select"
+                    required
+                  ></select>
+                </div>
+                <div class="form-group">
+                  <label for="attendanceDate">Date</label>
+                  <input
+                    id="attendanceDate"
+                    class="input"
+                    type="date"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="attendanceStatus">Status</label>
+                  <select id="attendanceStatus" class="select" required>
+                    <option value="">Select status</option>
+                    <option value="Present">Present</option>
+                    <option value="Absent">Absent</option>
+                    <option value="Late">Late</option>
+                  </select>
+                </div>
+              </div>
+              <p id="attendanceMsg" class="text-error" aria-live="polite"></p>
+              <button class="btn btn-primary" type="submit">
+                Save Attendance
+              </button>
+            </form>
+          </article>
+
+          <article class="card">
+            <div class="section-head">
+              <h3>Attendance Records</h3>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Student</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="attendanceTableBody"></tbody>
+              </table>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="../js/app.js"></script>
+  </body>
+</html>

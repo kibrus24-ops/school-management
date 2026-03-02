@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Students | School Management</title>
+    <link
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/fonts.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body data-page="students">
+    <div class="shell">
+      <aside class="sidebar" id="sidebar">
+        <a href="./dashboard.html" class="brand">YTS SCHOOL</a>
+        <nav class="nav" aria-label="Sidebar navigation">
+          <a class="nav-link" data-nav="dashboard" href="./dashboard.html"
+            >Dashboard</a
+          >
+          <a class="nav-link" data-nav="students" href="./students.html"
+            >Students</a
+          >
+          <a class="nav-link" data-nav="teachers" href="./teachers.html"
+            >Teachers</a
+          >
+          <a class="nav-link" data-nav="attendance" href="./attendance.html"
+            >Attendance</a
+          >
+          <a class="nav-link" data-nav="results" href="./results.html"
+            >Results</a
+          >
+        </nav>
+        <div class="sidebar-footer">
+          <p class="note">
+            Signed in as <strong data-current-user>Admin</strong>
+          </p>
+          <button data-logout class="btn btn-secondary" type="button">
+            Logout
+          </button>
+        </div>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <button id="menuToggle" class="btn menu-toggle" type="button">
+            Menu
+          </button>
+          <div class="page-title">
+            <h2>Student Management</h2>
+            <p>Add, edit, and manage all student records.</p>
+          </div>
+        </header>
+
+        <section class="grid-two">
+          <article class="card">
+            <div class="section-head">
+              <h3>Student Form</h3>
+            </div>
+            <form id="studentForm" novalidate>
+              <input id="studentId" type="hidden" />
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="firstName">First Name</label>
+                  <input id="firstName" class="input" type="text" required />
+                </div>
+                <div class="form-group">
+                  <label for="lastName">Last Name</label>
+                  <input id="lastName" class="input" type="text" required />
+                </div>
+                <div class="form-group full">
+                  <label for="studentEmail">Email</label>
+                  <input
+                    id="studentEmail"
+                    class="input"
+                    type="email"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="className">Class</label>
+                  <input
+                    id="className"
+                    class="input"
+                    type="text"
+                    placeholder="Grade 8"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="guardianPhone">Guardian Phone</label>
+                  <input
+                    id="guardianPhone"
+                    class="input"
+                    type="text"
+                    required
+                  />
+                </div>
+                <div class="form-group full">
+                  <label for="studentTeacher">Assigned Teacher</label>
+                  <select id="studentTeacher" class="select" required></select>
+                </div>
+              </div>
+              <p id="studentMsg" class="text-error" aria-live="polite"></p>
+              <div class="actions">
+                <button class="btn btn-primary" type="submit">
+                  Save Student
+                </button>
+                <button
+                  id="studentReset"
+                  class="btn btn-secondary"
+                  type="button"
+                >
+                  Reset
+                </button>
+              </div>
+            </form>
+          </article>
+
+          <article class="card">
+            <div class="section-head">
+              <h3>Students List</h3>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Class</th>
+                    <th>Teacher</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="studentsTableBody"></tbody>
+              </table>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="../js/app.js"></script>
+  </body>
+</html>

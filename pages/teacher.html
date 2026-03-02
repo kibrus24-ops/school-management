@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teacher Dashboard | School Management</title>
+    <link
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/fonts.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body data-page="teacher">
+    <div class="shell">
+      <aside class="sidebar" id="sidebar">
+        <a href="./teacher.html" class="brand">YTS SCHOOL</a>
+        <nav class="nav" aria-label="Sidebar navigation">
+          <a class="nav-link" data-nav="teacher" href="./teacher.html"
+            >Teacher Dashboard</a
+          >
+        </nav>
+        <div class="sidebar-footer">
+          <p class="note">
+            Signed in as <strong data-current-user>Teacher</strong>
+          </p>
+          <button data-logout class="btn btn-secondary" type="button">
+            Logout
+          </button>
+        </div>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <button id="menuToggle" class="btn menu-toggle" type="button">
+            Menu
+          </button>
+          <div class="page-title">
+            <h2>Teacher Dashboard</h2>
+            <p>Manage your students, attendance, and grades.</p>
+          </div>
+        </header>
+
+        <section id="teacherStats" class="grid-stats"></section>
+
+        <section class="grid-two">
+          <article class="card">
+            <div class="section-head">
+              <h3>My Students</h3>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Class</th>
+                    <th>Email</th>
+                  </tr>
+                </thead>
+                <tbody id="teacherStudentsBody"></tbody>
+              </table>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="section-head">
+              <h3>Filter by Student</h3>
+            </div>
+            <div class="form-group">
+              <label for="teacherFilterStudent">Student</label>
+              <select id="teacherFilterStudent" class="select"></select>
+            </div>
+            <p class="note">
+              Use the filter to view attendance and grades per student.
+            </p>
+          </article>
+        </section>
+
+        <section class="grid-two mt-md">
+          <article class="card">
+            <div class="section-head">
+              <h3>Mark Attendance</h3>
+            </div>
+            <form id="teacherAttendanceForm" novalidate>
+              <div class="form-grid">
+                <div class="form-group full">
+                  <label for="teacherAttendanceStudent">Student</label>
+                  <select
+                    id="teacherAttendanceStudent"
+                    class="select"
+                    required
+                  ></select>
+                </div>
+                <div class="form-group">
+                  <label for="teacherAttendanceDate">Date</label>
+                  <input
+                    id="teacherAttendanceDate"
+                    class="input"
+                    type="date"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="teacherAttendanceStatus">Status</label>
+                  <select id="teacherAttendanceStatus" class="select" required>
+                    <option value="">Select status</option>
+                    <option value="Present">Present</option>
+                    <option value="Absent">Absent</option>
+                  </select>
+                </div>
+              </div>
+              <p
+                id="teacherAttendanceMsg"
+                class="text-error"
+                aria-live="polite"
+              ></p>
+              <button class="btn btn-primary" type="submit">
+                Save Attendance
+              </button>
+            </form>
+          </article>
+
+          <article class="card">
+            <div class="section-head">
+              <h3>Attendance Records</h3>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Student</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="teacherAttendanceBody"></tbody>
+              </table>
+            </div>
+          </article>
+        </section>
+
+        <section class="grid-two mt-md">
+          <article class="card">
+            <div class="section-head">
+              <h3>Add / Edit Grades</h3>
+            </div>
+            <form id="teacherResultForm" novalidate>
+              <input id="teacherResultId" type="hidden" />
+              <div class="form-grid">
+                <div class="form-group full">
+                  <label for="teacherResultStudent">Student</label>
+                  <select
+                    id="teacherResultStudent"
+                    class="select"
+                    required
+                  ></select>
+                </div>
+                <div class="form-group">
+                  <label for="teacherResultSubject">Subject</label>
+                  <input
+                    id="teacherResultSubject"
+                    class="input"
+                    type="text"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="teacherResultScore">Score</label>
+                  <input
+                    id="teacherResultScore"
+                    class="input"
+                    type="number"
+                    min="0"
+                    max="100"
+                    required
+                  />
+                </div>
+              </div>
+              <p
+                id="teacherResultMsg"
+                class="text-error"
+                aria-live="polite"
+              ></p>
+              <button class="btn btn-primary" type="submit">Save Grade</button>
+            </form>
+          </article>
+
+          <article class="card">
+            <div class="section-head">
+              <h3>Grade Records</h3>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Student</th>
+                    <th>Subject</th>
+                    <th>Score</th>
+                    <th>Grade</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="teacherResultsBody"></tbody>
+              </table>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="../js/app.js"></script>
+  </body>
+</html>
